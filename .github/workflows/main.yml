@@ -34,4 +34,5 @@ jobs:
     - name: Build image
       run: |
         docker build . -t ${{ vars.REGISTRY_URL }}/mysql-manager:main -t ${{ vars.REGISTRY_URL }}/mysql-manager:${{ steps.meta.outputs.tags }}
-        docker push ${{ vars.REGISTRY_URL }}/mysql-manager:main  ${{ vars.REGISTRY_URL }}/mysql-manager:${{ steps.meta.outputs.tags }}
+        docker push ${{ vars.REGISTRY_URL }}/mysql-manager:main &&
+        docker push ${{ vars.REGISTRY_URL }}/mysql-manager:${{ steps.meta.outputs.tags }}
