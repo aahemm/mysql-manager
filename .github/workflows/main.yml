@@ -26,6 +26,6 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ${{ vars.REGISTRY_URL }}/mysql-manager:main type=sha,prefix=,format=short
+        tags: type=sha,prefix=,format=short
       env:
           DOCKER_METADATA_SHORT_SHA_LENGTH: 8
