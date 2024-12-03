@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - run: echo ${{ GITHUB_SHA::8 }}
+    - run: echo ${{ github.GITHUB_SHA::8 }}
     
     - name: Login to Docker Hub
       uses: docker/login-action@v3
@@ -28,4 +28,4 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ${{ vars.REGISTRY_URL }}/mysql-manager:main ${{ vars.REGISTRY_URL }}/mysql-manager:${{ GITHUB_SHA::8 }}
+        tags: ${{ vars.REGISTRY_URL }}/mysql-manager:main ${{ vars.REGISTRY_URL }}/mysql-manager:${{ github.GITHUB_SHA::8 }}
