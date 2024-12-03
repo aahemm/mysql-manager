@@ -30,10 +30,12 @@ jobs:
     
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-      
-    - name: Build and push
-      uses: docker/build-push-action@v6
-      with:
-        push: true
-        tags: ${{ steps.meta.outputs.tags }}
+
+    - run: docker build . -t ${{ vars.REGISTRY_URL }}:mysql-manager:main && docker push ${{ vars.REGISTRY_URL }}:mysql-manager:main
+    
+    # - name: Build and push
+    #   uses: docker/build-push-action@v6
+    #   with:
+    #     push: true
+    #     tags: ${{ steps.meta.outputs.tags }}
       
